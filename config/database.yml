@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+development:
+  <<: *default
+  database: adaptive_learning_portal
+  username: root
+  password: root
+ 
+
+production:
+  <<: *default
+  database: adaptive_learning_portal
+  username: root
+  password: root
+

@@ -1,0 +1,46 @@
+<blockquote class="active">
+  <p>Welcome to Adaptive Learning Portal</p>
+</blockquote>
+<center>
+<!-- <h2>Test your brain power by iQUIZ</h2>
+<img align="center" src="http://newlifelathrop.com/wordpress/wp-content/uploads/2017/03/brain-power.jpg" height=250 width = "400"></img> -->
+<br>
+<br>
+<br>
+<!-- <a href="/quizplay" class="btn btn-primary btn-block"> Take Exam</a> -->
+
+<center>
+
+
+<h1 align="center">DASHBOARD</h1>
+<a href="/exams" class="btn btn-success btn-lg btn-block">Take Exam</a>
+<br>
+<br>
+<% if notice %>
+    <div class="alert alert-dismissible alert-success">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong id="notice" style="color: white"><%= notice %></strong>
+    </div>
+<% end %>
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">User Info</h3>
+  </div>
+
+ <table class="table table-striped table-hover">
+ <tr class="active">
+ <td>Email id.</td>
+ <td><%=current_user.email %>
+ </td>
+ </tr>
+ <tr class="active">
+ <td>Score</td>
+ <td><%#=current_user.score %></td>
+ </tr>      
+</table>
+</div>
+
+
+
+
+

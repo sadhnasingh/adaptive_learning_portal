@@ -1,0 +1,2 @@
+class AddSubjectIdToTopic < ApplicationRecord
+end
