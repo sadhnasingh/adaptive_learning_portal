@@ -13,16 +13,20 @@
   <tbody>
     <% @questions.each do |question| %>
       <tr>
-        <td><%#= question.title %></td>
-         <td><%= link_to "#{question.try(:title)}", questions_chapter_path(question.id) %></td>
+        <td><%= question.title %></td>
+         <td><%#= link_to "#{question.try(:title)}", questions_chapter_path(question.id) %></td>
         <td><%= link_to 'Show', question %></td>
         <td><%= link_to 'Edit', edit_question_path(question) %></td>
         <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
+   
 </table>
 
 <br>
 
-<%= link_to 'New Question', new_question_path %>
+<%= link_to 'New Question', new_question_path %><br>
+<%#= link_to 'Easy Question', chapter_easy_question_path %>
+<a href="/chapters/<%= @chapter.id%>/easy_question">rgfd</a>
+

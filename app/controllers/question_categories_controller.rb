@@ -5,13 +5,9 @@ class QuestionCategoriesController < ApplicationController
   # GET /question_categories.json
   def index
     # byebug
-    if params[:id].present?
-      @chapter = Chapter.find(params[:id])
-      @question_categories = @chapter.question_categories
-    else
+    
       @question_categories = QuestionCategory.all
-    end
-  
+    
     
   end
 
@@ -77,6 +73,6 @@ class QuestionCategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_category_params
-      params.require(:question_category).permit(:title, :chapter_id)
+      params.require(:question_category).permit(:title)
     end
 end

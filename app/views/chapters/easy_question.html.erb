@@ -1,0 +1,9 @@
+  <% @que.each do |question| %>
+  
+      <tr>
+        <td><%= question.title %></td>
+         <td><%#= link_to "#{question.try(:title)}", questions_chapter_path(question.id) %></td>
+       
+      </tr>
+   <%= will_paginate @que %>
+    <% end %>

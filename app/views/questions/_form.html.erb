@@ -10,9 +10,18 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
+    <%= form.label :Chapter %>
+ <%= form.collection_select :chapter_id, Chapter.all,:id,:title, include_blank: true %>
+</div>
  <div class="field">
     <%= form.label :Question_category %>
- <%= form.collection_select :question_category_id, QuestionCategory.all.uniq,:id,:title, include_blank: true %>
+    <%#= form.select :question_category, ['Easy', 'Medium', 'Hard'] %>
+    <%= form.select :category, options_for_select([['Easy'], ['Medium'], ['Hard']], :selected => :category) %>
+
+
+    <%#= form.select(:question_category, ['Easy', 'Medium', 'Hard'], {}, { :class => 'my_style_class' }) %>
+ <%#= form.collection_select :question_category_id, QuestionCategory.all.uniq,:id,:title, include_blank: true %>
 </div>
   <div class="field">
     <%= form.label :title %>

@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 	 	member do
       get 'questions', to: "questions#index" 
     end
+    get 'easy_question'
 	end
   resources :question_categories do
    member do
@@ -35,6 +36,7 @@ Rails.application.routes.draw do
     end
   end
 	 resources :questions do
+
 	end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -10,6 +10,7 @@ class QuestionsController < ApplicationController
     else
       @questions = Question.all
     end 
+     @que = Question.all.where(category: "Easy")
   end
 
   # GET /questions/1
@@ -65,6 +66,8 @@ class QuestionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def easy_question
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -74,6 +77,6 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:title, :question_category_id)
+      params.require(:question).permit(:title, :category, :chapter_id)
     end
 end

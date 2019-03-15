@@ -66,6 +66,11 @@ class ChaptersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def easy_question
+    @que = Question.all.where(category: "Easy").paginate(:page => params[:page], :per_page => 1)
+   
+
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
