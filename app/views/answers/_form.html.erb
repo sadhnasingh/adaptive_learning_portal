@@ -1,0 +1,71 @@
+<%= form_with(model: answer, local: true) do |form| %>
+  <% if answer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
+
+      <ul>
+      <% answer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :Questions %>
+ <%= form.collection_select :question_id, Question.all,:id,:title, include_blank: true %>
+</div>
+
+  <!-- <div class="field"> -->
+    <%#= form.label :question_id %>
+    <%#= form.number_field :question_id, id: :answer_question_id %>
+  <!-- </div> -->
+
+  <div class="field">
+    <%= form.label :option1 %>
+    <%= form.text_field :option1, id: :answer_option1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :option2 %>
+    <%= form.text_field :option2, id: :answer_option2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :option3 %>
+    <%= form.text_field :option3, id: :answer_option3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :option4 %>
+    <%= form.text_field :option4, id: :answer_option4 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :check1 %>
+    <%= form.check_box :check1, id: :answer_check1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :check2 %>
+    <%= form.check_box :check2, id: :answer_check2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :check3 %>
+    <%= form.check_box :check3, id: :answer_check3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :check4 %>
+    <%= form.check_box :check4, id: :answer_check4 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :skip %>
+    <%= form.check_box :skip, id: :answer_skip %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

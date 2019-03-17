@@ -1,9 +1,16 @@
   <% @que.each do |question| %>
   
       <tr>
-        <td><%= question.title %></td>
-         <td><%#= link_to "#{question.try(:title)}", questions_chapter_path(question.id) %></td>
+        <td><%= question.title %></td><br>
+        <%= form_for :correct_answer do |c| %>
+         <td><%= c.check_box :correct_answer%></td><br>
+        <td><%= question.answer.try(:option1) %></td><br>
+        <td><%= question.answer.try(:option2) %></td><br>
+        <td><%= question.answer.try(:option3) %></td><br>
+        <td><%= question.answer.try(:option4) %></td><br>
        
-      </tr>
+        <%= c.submit :submit%>
+       
+      </tr><%end%>
    <%= will_paginate @que %>
     <% end %>

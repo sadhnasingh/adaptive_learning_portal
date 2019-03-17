@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :answers
   resources :question_categories
   resources :questions
   resources :chapters
@@ -38,6 +39,9 @@ Rails.application.routes.draw do
 	 resources :questions do
 
 	end
+  # resources :correct_answers do
+  # end
+  # get 'correct_answers'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,2 @@
+class CorrectAnswerController < ApplicationController
+end
