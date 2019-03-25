@@ -1,16 +1,44 @@
-  <% @que.each do |question| %>
+   <center>
+      <%= form_for :correct_answer, :url => correct_answers_path, html: {id: "question_submit"} do |c| %>
+  		 <% @que.each do |question| %>
   
       <tr>
         <td><%= question.title %></td><br>
-        <%= form_for :correct_answer do |c| %>
-         <td><%= c.check_box :correct_answer%></td><br>
-        <td><%= question.answer.try(:option1) %></td><br>
-        <td><%= question.answer.try(:option2) %></td><br>
-        <td><%= question.answer.try(:option3) %></td><br>
-        <td><%= question.answer.try(:option4) %></td><br>
+        <%#byebug%>
+       <!--  <input type="checkbox" name="correct_answer_<%= question.try(:id)%><%= question.answer.try(:option1) %>" value="<%= question.answer.try(:option1) %>"><%= question.answer.try(:option1) %><br>
+        <input type="checkbox" name="correct_answer_<%= question.try(:id)%>_<%= question.answer.try(:option2) %>" value="<%= question.answer.try(:option2) %>"><%= question.answer.try(:option2) %><br>
+        <input type="checkbox" name="correct_answer_<%= question.try(:id)%>_<%= question.answer.try(:option3) %>" value="<%= question.answer.try(:option3) %>"><%= question.answer.try(:option3) %><br>
+        <input type="checkbox" name="correct_answer_<%= question.try(:id)%>_<%= question.answer.try(:option4) %>" value="<%= question.answer.try(:option4) %>"><%= question.answer.try(:option4) %><br> -->
+		    <% if question.answer.try(:check1) == true %>
+        <td><%= c.check_box :correct_answer,{}, true%><%= question.answer.try(:option1) %></td><br>
+        <%else%>
+        <%= c.check_box :correct_answer,{}, false%><%= question.answer.try(:option1) %></td><br>
+        <%end%>
+        <td><%= c.check_box :skip_question%><%= question.answer.try(:option2) %></td><br>
+        <td><%#= c.check_box :correct_answer%><%= question.answer.try(:option3) %></td><br>                                                    
+        <td><%#= c.check_box :correct_answer%><%= question.answer.try(:option4) %></td><br>
+        <td><%= c.hidden_field :user_id, :value => current_user.id %></td>
+         <td><%= c.hidden_field :skip_question%></td>
+          <td><%= c.hidden_field :question_id, :value => question.try(:id) %></td>
+          <td><%= c.hidden_field :answer_id, :value => question.answer.try(:id) %></td>
        
-        <%= c.submit :submit%>
-       
-      </tr><%end%>
-   <%= will_paginate @que %>
-    <% end %>
+      </tr>
+   		<%= will_paginate @que, :page_links => false, :previous_label => '', id: "next"%>
+
+      <%#= c.submit :submit%>
+        <% if @que.count == params[:page].to_i  %>
+          <%= c.submit "Submit", :name => "submit_form", :value =>"submit", type: "submit", class: "btn btn-lg btn-success btn"%>
+      <%else %>
+        
+      <%end %>
+       <%end%>
+        
+    <% end %></center>
+
+
+    <script type="text/javascript">
+      $('#next').on('click', function () {
+        // console.log('hiiiiiiiiiiiiiiiiiii')
+        $('#question_submit').submit();
+      })
+    </script>

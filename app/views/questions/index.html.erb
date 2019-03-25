@@ -28,5 +28,8 @@
 
 <%= link_to 'New Question', new_question_path %><br>
 <%#= link_to 'Easy Question', chapter_easy_question_path %>
-<a href="/chapters/<%= @chapter.id%>/easy_question">Easy Question</a>
-
+<%# if @chapter.id.present?%>
+<a href="/chapters/<%= @chapter.try(:id)%>/easy_question">Easy Question</a><br>
+<a href="/chapters/<%= @chapter.try(:id)%>/easy_question">Medium Question</a><br>
+<a href="/chapters/<%= @chapter.try(:id)%>/easy_question">Hard Question</a>
+<%#end%>

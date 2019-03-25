@@ -68,10 +68,9 @@ class ChaptersController < ApplicationController
   end
   def easy_question
    
+    # @question = Question.find(params[:id])
     @que = Question.all.where(category: "Easy").paginate(:page => params[:page], :per_page => 1)
-    # redirect_to chapters_url
-    # @answer = @que.answer
-
+   
   end
 
   private
