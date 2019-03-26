@@ -5,8 +5,10 @@ class QuestionsController < ApplicationController
   # GET /questions.json
   def index
     if params[:id].present?
+      # byebug
       @chapter = Chapter.find(params[:id])
       @questions = @chapter.questions
+      # @questions = Question.all.where(id: @chapter.id)
     else
       @questions = Question.all
     end 

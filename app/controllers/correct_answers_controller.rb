@@ -21,6 +21,6 @@ class CorrectAnswersController < ApplicationController
      
  
 	def correct_answer_params
-      params.require(:correct_answer).permit(:user_id, :correct_answer, :skip_question, :question_id, :answer_id)
+      params.require(:correct_answer).permit(:user_id, :correct_answer, :skip_question, :question_id, :answer_id, :correct_answer1, :correct_answer2, :correct_answer3)
     end
 end

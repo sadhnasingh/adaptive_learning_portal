@@ -29,6 +29,8 @@ Rails.application.routes.draw do
 	 	member do
       get 'questions', to: "questions#index" 
       get 'easy_question'
+      get 'medium_question'
+      get 'hard_question'
     end
 	end
   resources :question_categories do

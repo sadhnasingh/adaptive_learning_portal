@@ -67,11 +67,18 @@ class ChaptersController < ApplicationController
     end
   end
   def easy_question
-   
-    # @question = Question.find(params[:id])
-    @que = Question.all.where(category: "Easy").paginate(:page => params[:page], :per_page => 1)
-   
+    @chapter = Chapter.find(params[:id])
+    @que = Question.all.where(category: "Easy").where(chapter_id: @chapter.id).paginate(:page => params[:page], :per_page => 1) 
   end
+  def medium_question
+    @chapter = Chapter.find(params[:id])
+    @que = Question.all.where(category: "Medium").where(chapter_id: @chapter.id).paginate(:page => params[:page], :per_page => 1) 
+  end
+  def hard_question
+    @chapter = Chapter.find(params[:id])
+    @que = Question.all.where(category: "Hard").where(chapter_id: @chapter.id).paginate(:page => params[:page], :per_page => 1) 
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

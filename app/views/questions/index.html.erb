@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+<center><h1>Questions</h1></center>
 
-<h1>Questions</h1>
-
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Title</th>
-      <th colspan="3"></th>
+      <th colspan="3">Action</th>
     </tr>
   </thead>
 
@@ -25,11 +25,18 @@
 </table>
 
 <br>
-
-<%= link_to 'New Question', new_question_path %><br>
+</div>
+<div class="col-md-12">
+<%= link_to 'New Question', new_question_path, :class => "btn btn-lg btn-success btn"  %><br></div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <%#= link_to 'Easy Question', chapter_easy_question_path %>
 <%# if @chapter.id.present?%>
-<a href="/chapters/<%= @chapter.try(:id)%>/easy_question">Easy Question</a><br>
-<a href="/chapters/<%= @chapter.try(:id)%>/easy_question">Medium Question</a><br>
-<a href="/chapters/<%= @chapter.try(:id)%>/easy_question">Hard Question</a>
+<div class="row">
+  <div class="col-md-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="/chapters/<%= @chapter.try(:id)%>/easy_question" class= "btn btn-lg btn-success btn">Easy Question</a><br><br></div>
+<div class="col-md-4">
+<a href="/chapters/<%= @chapter.try(:id)%>/medium_question" class= "btn btn-lg btn-success btn">Medium Question</a><br><br></div>
+<div class="col-md-4">
+<a href="/chapters/<%= @chapter.try(:id)%>/hard_question" class= "btn btn-lg btn-success btn">Hard Question</a></div>
+</div><br><br><br><br>
 <%#end%>
