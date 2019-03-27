@@ -27,4 +27,6 @@
 <br>
 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <%#= link_to 'New Exam', new_exam_path%>
+<% if current_user.admin?%>
 <a href="/exams/new" class="btn btn-success" role="button">New Exam</a>
+<%end%>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190317173817) do
+ActiveRecord::Schema.define(version: 20190327052255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,9 @@ ActiveRecord::Schema.define(version: 20190317173817) do
     t.integer "answer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "correct_answer1"
+    t.boolean "correct_answer2"
+    t.boolean "correct_answer3"
   end
 
   create_table "exams", force: :cascade do |t|
@@ -52,13 +55,6 @@ ActiveRecord::Schema.define(version: 20190317173817) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
-  end
-
-  create_table "question_categories", force: :cascade do |t|
-    t.string "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "chapter_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -97,6 +93,7 @@ ActiveRecord::Schema.define(version: 20190317173817) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

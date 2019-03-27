@@ -27,4 +27,6 @@
 </div>
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <%= link_to 'Back', root_path %>
+<% if current_user.admin?%>
 <%= link_to 'New Subject', new_subject_path %>
+<%end%>

@@ -27,6 +27,6 @@
 </div>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
+<% if current_user.admin?%>
 <%= link_to 'New Chapter', new_chapter_path %>
-<%= link_to 'New Question Category', new_question_category_path %>
+<%end%>

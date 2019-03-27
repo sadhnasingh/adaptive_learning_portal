@@ -11,15 +11,8 @@
 
 <center>
 
-<a href="/exams/new" class="btn btn-success" role="button">New Exam</a><br>
-<%= link_to 'New Subject', new_subject_path %><br>
-<%= link_to 'New Topic', new_topic_path %><br>
-<%= link_to 'New Chapter', new_chapter_path %><br>
-<%= link_to 'New Question Category', new_question_category_path %><br>
-<%= link_to 'New Question', new_question_path %><br>
-
-<h1 align="center">DASHBOARD</h1>
-<a href="/exams" class="btn btn-success btn-lg btn-block">Take Exam</a>
+<h1 align="center">DASHBOARD</h1><br>
+<a href="/exams" class="btn btn-success btn-lg btn-block Exam">Take Exam</a>
 <br>
 <br>
 <% if notice %>
@@ -28,7 +21,14 @@
       <strong id="notice" style="color: white"><%= notice %></strong>
     </div>
 <% end %>
-<div class="panel panel-success">
+<% if current_user.admin?%>
+<a href="/exams/new" class="btn btn-success" role="button">New Exam</a><br><br>
+<%= link_to 'New Subject', new_subject_path, class: "btn btn-success" %><br><br>
+<%= link_to 'New Topic', new_topic_path, class: "btn btn-success" %><br><br>
+<%= link_to 'New Chapter', new_chapter_path, class: "btn btn-success" %><br><br>
+<%= link_to 'New Question', new_question_path, class: "btn btn-success" %><br>
+<%end%>
+<!-- <div class="panel panel-success">
   <div class="panel-heading">
     <h3 class="panel-title">User Info</h3>
   </div>
@@ -44,8 +44,12 @@
  <td><%#=current_user.score %></td>
  </tr>      
 </table>
-</div>
-
+</div> -->
+<style type="text/css">
+	.Exam{
+		width: 50%;
+  	}
+</style>
 
 
 

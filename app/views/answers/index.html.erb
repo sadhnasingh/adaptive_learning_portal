@@ -41,5 +41,6 @@
 </table>
 
 <br>
-
+<% if current_user.admin?%>
 <%= link_to 'New Answer', new_answer_path %>
+<%end%>

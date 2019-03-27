@@ -26,4 +26,6 @@
 <br>
 </div>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<% if current_user.admin?%>
 <%= link_to 'New Topic', new_topic_path %>
+<%end%>
