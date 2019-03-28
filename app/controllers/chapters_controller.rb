@@ -71,8 +71,11 @@ class ChaptersController < ApplicationController
     @que = Question.all.where(category: "Easy").where(chapter_id: @chapter.id).paginate(:page => params[:page], :per_page => 1) 
   end
   def medium_question
+    # byebug
     @chapter = Chapter.find(params[:id])
-    @que = Question.all.where(category: "Medium").where(chapter_id: @chapter.id).paginate(:page => params[:page], :per_page => 1) 
+    @ques = @chapter.questions.where(category: "Medium").where(chapter_id: @chapter.id)
+    @que = @ques.find(params[:medium_question]) 
+    # @que = Question.all.where(category: "Medium").where(chapter_id: @chapter.id).paginate(:page => params[:page], :per_page => 1) 
   end
   def hard_question
     @chapter = Chapter.find(params[:id])

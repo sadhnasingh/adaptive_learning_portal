@@ -60,11 +60,11 @@
          </div>
          <td><%= c.hidden_field :user_id, :value => current_user.id %></td>
          <%#byebug%>
-         <% if  will_paginate @que, id: "skip" %>
-         <td><%= c.hidden_field :skip_question, :value => true%></td>
-         <%else%>
-         <td><%= c.hidden_field :skip_question, :value => false%></td>
-         <%end%>
+         <%# if  will_paginate @que, id: "skip" %>
+         <td><%= c.hidden_field :skip_question, id: "skiped_question"%></td>
+         <%#else%>
+         <td><%#= c.hidden_field :skip_question, :value => false%></td>
+         <%#end%>
          <td><%= c.hidden_field :question_id, :value => question.try(:id) %></td>
          <td><%= c.hidden_field :answer_id, :value => question.answer.try(:id) %></td>
       </tr>
@@ -75,7 +75,7 @@
    <% if @que.count == params[:page].to_i  %>
    <%= c.submit "Submit", :name => "submit_form", :value =>"submit", type: "submit", class: "btn btn-lg btn-success btn"%>
    <%else%>
-   <%= will_paginate @que,:page_links => false, :previous_label => '', :next_label => 'Skip', id: "skip", class: "btn btn-lg btn-success btn" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <%= will_paginate @que,:page_links => false, :previous_label => '', :next_label => 'Skip', id: "skip", class: "btn btn-lg btn-success btn", :name => "skip", :value =>"true" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    <%= will_paginate @que, :page_links => false, :previous_label => '', id: "next", class: "btn btn-lg btn-success btn"%>
    <%end%>
 </center>
@@ -86,6 +86,7 @@
      $('#question_submit').submit();
    })
    $('#skip').on('click', function () {
+     $('#skiped_question').val("true");
      $('#question_submit').submit();
    })
    
