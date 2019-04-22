@@ -58,3 +58,5 @@ gem 'devise'
 gem 'will_paginate'
 gem 'wicked'
 gem 'jquery-rails'
+gem 'dotenv-rails', :require => 'dotenv/rails-now'
+gem "recaptcha", require: "recaptcha/rails"

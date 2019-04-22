@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   resources :subjects
   # get 'exams/index'
 
-  devise_for :users
+  # devise_for :users
+   devise_for :users, :controllers => {:registrations => "users/registrations"}
   get 'welcome/index'
   root 'welcome#index'
   resources :exams do
@@ -28,6 +29,7 @@ Rails.application.routes.draw do
 	 resources :chapters do
 	 	member do
       get 'questions', to: "questions#index" 
+      get 'get_question'
       get 'easy_question'
       get 'medium_question'
       get 'hard_question'

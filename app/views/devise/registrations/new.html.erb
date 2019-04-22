@@ -46,7 +46,11 @@
                       <% if(params['redirect'].present?) %>
                         <input type="hidden" name="redirect" value="<%= params['redirect'] %>">
                       <% end %>
-                      <div class="form-group">
+
+                          <div class="field">
+                            <%= recaptcha_tags %>
+                          </div><br>
+                            <div class="form-group">
                           <input type="submit" data-disable-with="Sign up" value="Sign up" name="commit" class="btn btn-blue btn-block">
                       </div>                      
                   </div>
