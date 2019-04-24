@@ -1,4 +1,6 @@
 <%= form_with(model: exam, local: true) do |form| %>
+<div class="well bs-component">
+   <div class="container-fluid">
   <% if exam.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(exam.errors.count, "error") %> prohibited this exam from being saved:</h2>
@@ -14,12 +16,43 @@
     <%#= form.label :Subject %>
  <%#= form.collection_select :subject_id, Subject.all,:id,:title, include_blank: true %>
 </div>
+<div class="form-group">
 <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title, id: :exam_title %>
+    <%= form.text_field :title, id: :exam_title, class: 'form-control', style: ' width: 40%; '  %>
   </div>
+</div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :class => 'btn btn-primary' %>
   </div>
+
+</div>
+</div>
+
 <% end %>
+<style type="text/css">
+   .container-fluid {
+   margin-right: auto;
+   margin-left: auto;
+   padding-left: 15px;
+   padding-right: 15px;
+   }
+   .well {
+   margin-left: 400px;
+   margin-right: 400px;
+   margin-top: 143px;
+   min-height: 20px;
+   padding: 19px;
+   margin-bottom: 20px;
+   background-color: #D5DBDB;
+   border: 1px solid transparent;
+   border-radius: 4px;
+   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+   }
+   .well {
+   -webkit-box-shadow: none;
+   box-shadow: none;
+   }
+</style>
